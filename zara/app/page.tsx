@@ -1,9 +1,10 @@
-import React from 'react'
+// import React from 'react';
+// import Home from '@/components/Home';
 
-function page() {
-  return (
-    <div>Hello</div>
-  )
-}
+// const Page: React.FC = () => {
+//   return (
+//     <Home />
+//   );
+// };
 
-export default page
+// export default Page;
