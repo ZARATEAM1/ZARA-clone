@@ -1,10 +1,10 @@
-// import React from 'react';
-// import Home from '@/components/Home';
+import React from 'react';
+import Home from './components/Home';
 
-// const Page: React.FC = () => {
-//   return (
-//     <Home />
-//   );
-// };
+const Page: React.FC = () => {
+  return (
+    <Home />
+  );
+};
 
-// export default Page;
+export default Page;

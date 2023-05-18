@@ -1,0 +1,71 @@
+.sidebar {
+    width: 240px;
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .sidebar .womensec {
+    font-weight: bold;
+  }
+  
+  .sidebar .mensec {
+    font-weight: bold;
+  }
+  
+  .sidebar .womensec1 {
+    padding-left: 20px;
+  }
+  
+  .sidebar #womenJacks {
+    font-weight: bold;
+  }
+  
+  .sidebar #womenAcc {
+    font-weight: bold;
+  }
+  
+  .sidebar .mensec1 {
+    padding-left: 20px;
+  }
+  
+  .sidebar #menShirts {
+    font-weight: bold;
+  }
+  
+  .sidebar #menShoes {
+    font-weight: bold;
+  }
+  
+  .sidebar #athleticz {
+    font-weight: bold;
+  }
+  
+  .sidebar a:hover {
+    color: #ff0000;
+  }
+  
+  .sidebar u {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .sidebar u:hover {
+    color: #ff0000;
+  }
+  

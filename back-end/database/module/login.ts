@@ -7,8 +7,7 @@ const authenticate = (
     password: string,
     callback: (error: string | null, token: string | null) => void
   ): void => {
-    const sql = `SELECT * FROM individual WHERE email="${email}"`;
-  
+    const sql = `SELECT * FROM customers WHERE email="${email}"`;
     connection.query(sql, (err, result: RowDataPacket[]) => {
       if (err) {
         callback(err.message, null);
@@ -22,7 +21,7 @@ const authenticate = (
                 userID: result[0].userID,
                 email: result[0].email,
               },
-              "life"
+              "token"
             );
             callback(null, token);
           } else {

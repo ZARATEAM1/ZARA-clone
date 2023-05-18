@@ -1,0 +1,143 @@
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
+  
+  .signform {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logform {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .card input:focus {
+    outline: none;
+    border-color: #000;
+  }
+  
+  .btnlog {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btnlog:hover {
+    background-color: #333;
+  }
+  
+  .login {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-holder input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .form-holder input:focus {
+    outline: none;
+    border-color: #000;
+  }
+  
+  .submit-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .submit-btn:hover {
+    background-color: #333;
+  }
+  
+  .create {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .create:hover {
+    color: #000;
+  }
+  .register {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-left: 1ch;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .register:hover {
+    background-color: #333;
+  }
+  
+  
