@@ -1,4 +1,4 @@
-import connection from '../conn';
+import connection from '../database/conn';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { RowDataPacket } from 'mysql2';

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import addOne from '../database/module/signup';
+import addOne from '../module/signup';
 
 export const signup = (req: Request, res: Response) => {
 

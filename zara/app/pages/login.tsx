@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 const API='http://localhost:3002/user/login'
 const API2='http://localhost:3002/user/sign'
-import '../tailwindcss/Log.css'
+import '../tailwindcss/log.css'
 function Login() {
 const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

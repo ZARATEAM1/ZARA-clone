@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import authenticate from '../database/module/login';
+import authenticate from '../module/login';
 
 export const authentication = (req: Request, res: Response) => {
   const email = req.body.email;

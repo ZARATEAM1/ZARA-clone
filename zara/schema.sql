@@ -10,6 +10,7 @@ CREATE TABLE products (
     description TEXT NOT NULL,
     color VARCHAR(50),
     size VARCHAR(10),
+    img VARCHAR(400)
     PRIMARY KEY (id)
 );
 
