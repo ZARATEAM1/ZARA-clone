@@ -12,6 +12,16 @@ export class ProductModel {
       database: 'zara',
     });
   }
+  getAll(callback: (error: any, results: any) => void) {
+    this.connection.query('SELECT * FROM products ', callback);
+  }
+  
+
+getProductById = (id: any, callback: (err: any, result: any) => void): void => {
+  const sql: string = `SELECT * FROM products WHERE id=${id}`;
+  this.connection.query(sql, callback);
+};
+
 
   getAllProducts(callback: (error: any, results: any) => void) {
     this.connection.query('SELECT * FROM products where gender = "women"', callback);

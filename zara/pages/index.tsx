@@ -97,10 +97,8 @@ const Home= () => {
 
     <>
        <>
-    <div onClick={()=>window.location.href='/Women'}> women </div>
-    <div onClick={()=>window.location.href='/beauty'}> beauty</div>
-    <div onClick={()=>window.location.href='/getmens'}> mens</div>
-    <div onClick={()=>window.location.href='/getkids'}> kids</div>
+    <div onClick={()=>window.location.href='/all'}> beauty</div>
+   
     
    
     </>
@@ -119,34 +117,26 @@ const Home= () => {
       <div className="sidebar-menu">
         <div className="top-menu">
           <a
-            href="#"
+           
             className={`sidebar-link ${activeView === 'men' ? 'active' : ''}`}
             onClick={() => handleViewClick('men')}
           >
             <i className="fas fa-gauge"></i>
-            <span>Man</span>
+            <span onClick={()=>window.location.href='/getmens'}>Man</span>
           </a>
           {activeView === 'men' && (
             <div className="category-menu">
-              <a href="#" className="category-link">
-                Category 1
-              </a>
-              <a href="#" className="category-link">
-                Category 2
-              </a>
-              <a href="#" className="category-link">
-                Category 3
-              </a>
+             
               {/* Add more categories as needed */}
             </div>
           )}
           <a
-            href="#"
+
             className={`sidebar-link ${activeView === 'women' ? 'active' : ''}`}
             onClick={() => handleViewClick('women')}
           >
             <i className="fas fa-chart-simple"></i>
-            <span>Woman</span>
+            <span onClick={()=>window.location.href='/Women'}>Woman</span>
           </a>
           {activeView === 'women' && (
             <div className="category-menu">
@@ -159,7 +149,7 @@ const Home= () => {
             onClick={() => handleViewClick('kids')}
           >
             <i className="fas fa-dollar-sign"></i>
-            <span>Kids</span>
+            <span onClick={()=>window.location.href='/getkids'}>Kids</span>
           </a>
           {activeView === 'kids' && (
             <div className="category-menu">
@@ -189,7 +179,8 @@ const Home= () => {
             </div>
         <span className="rightoptions">
          
-            <input className='Search' type="search" placeholder='SEARCH FOR MORE' />
+        <input onClick={() => window.location.href = '/Search'} />
+
          
           <u>
             <p id=""  onClick={toggleLogin}>

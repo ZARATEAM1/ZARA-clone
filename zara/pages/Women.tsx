@@ -2,10 +2,11 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Detail from "./Detail";
+
 import { Cardd } from "./Cardd";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Detail from "./components/detail";
+
 
 interface WomenData {
   img: string;
@@ -25,7 +26,7 @@ function Women() {
       .then((response) => {
         setWomen(response.data);
       })
-     
+
       .catch((error) => console.log(error));
     }, []);
   
@@ -40,6 +41,7 @@ function Women() {
                   <div className="card-body">
                     <h5 className="card-title">{e.name}</h5>
                     <p className="card-text">{e.color}</p>
+                    <Link href={`oneProduct/${e.id}`}>{e.name}</Link>
                   </div>
                   <div className="card-footer">
                     <small className="text-muted">{e.price}</small>
