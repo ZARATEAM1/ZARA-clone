@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ProductModel } from '../models/productModel';
+import { ProductModel } from '../models/ProductModel';
 
 export class ProductController {
   private model: ProductModel;
@@ -7,6 +7,36 @@ export class ProductController {
   constructor() {
     this.model = new ProductModel();
   }
+  getAll(req: Request, res: Response) {
+    this.model.getAll((error: any, results: any) => {
+      if (error) {
+        console.error('Error fetching products:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      } else {
+        res.json(results);
+      }
+    });
+  }
+
+  getOne(req: Request, res: Response): void {
+    const id: any = req.params.id;
+    console.log(id);
+
+    this.model.getProductById(id, (err: any, result: any) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        if (result.length === 0) {
+          res.status(404).json({ message: 'Product not found' });
+        } else {
+          res.status(200).json(result[0]);
+        }
+      }
+    });
+  }
+
+
+
 
   getAllProducts(req: Request, res: Response) {
     this.model.getAllProducts((error: any, results: any) => {
