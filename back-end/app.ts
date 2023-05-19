@@ -1,14 +1,15 @@
-import express from "express";
+import express, { Application } from 'express';
 import connection from "./database/conn";
 import cors from "cors"
 import morgan from "morgan"
+import productRoute from './routes/productRoute';
 connection
 const app=express()
 const PORT=3002
 
 app.use(cors())
 app.use(morgan("dev"))
-
+app.use('/api', productRoute);
 app.get('/Taher',(req,res)=>{
     return res.send("yeah")
 })
@@ -52,6 +53,14 @@ app.get("/products/:id", (req, res) => {
 app.listen(PORT,()=>{
     console.log(`server is lstening at http://localhost:${PORT}`)
 })
+
+
+
+
+
+
+
+// import cors from 'cors';
 
 
 
