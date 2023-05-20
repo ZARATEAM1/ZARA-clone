@@ -15,9 +15,9 @@ const ProductFilter = () => {
   return (
     <div>
       <select className="form-select" aria-label="Default select example" onChange={handleCategoryChange}>
-  <option selected>Open this select menu</option>
-  <option value="Clothing">Clothing</option>
-  <option value="Blazer">Blazer</option>
+  <option selected>Newst</option>
+  <option value="Blazer">Blazers</option>
+  <option value="Beauty">Beauty</option>
   <option value="T-Shirts">T-Shirts</option>
 </select>
 

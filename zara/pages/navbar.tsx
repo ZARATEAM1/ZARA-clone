@@ -28,12 +28,14 @@ const Navbar: React.FC = () => {
   const change = token ? `You're welcome ${name}` : 'LOG IN';
 
   return (
+   
     <>
-    <div id="logo">
+    <div className="logo">
     <a href="/">
         <img src="https://logodownload.org/wp-content/uploads/2014/05/zara-logo-1.png" alt="zaralogo"/>
         </a>
     </div>
+
     
     <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center',marginTop:'-140px' }}>
   <div id="ship">
@@ -49,6 +51,7 @@ const Navbar: React.FC = () => {
   </div>
 </div>
 
+
     
     <style jsx>
             {`*{
@@ -56,19 +59,19 @@ const Navbar: React.FC = () => {
     padding: 0%;
     font-family: Neue-Helvetica, Helvetica, Arial, sans-serif;;
 }
-nav{
+.logo{
     display: flex;
     position: sticky;
     top: 0%;
-    background-color: white;
+
 }
-#logo{
+.logo{
     width: 210px;
     margin-top: 10px;
     margin-left: 8%;
     margin-bottom: 10px;
 }
-#logo>a>img{
+.logo>a>img{
     width: 100%;
 }
 a{
@@ -204,9 +207,9 @@ button:hover{
 }`}
          </style>
          
-    
+        
     </>
-  
+    
   );
 };
 

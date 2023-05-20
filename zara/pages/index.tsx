@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Login from '../pages/login';
 // import '../home/Home.css'
 // import '../../tailwindcss/Home.css';
-import styles from '../home/Home.module.css'
-
+// import styles from '../home/Home.module.css'
 // import '../tailwindcss/Log.css'
 // import '../tailwindcss/side.css'
 
@@ -70,6 +69,7 @@ const Home= () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
   }, []);
+
   useEffect(() => {
     const toggleSidebar = () => {
       const sidebar = document.querySelector('.sidebar');
@@ -78,7 +78,7 @@ const Home= () => {
       }
     };
 
-    const sidebarToggleBtn = document.querySelector('.sidebar-toggle-btn');
+    const sidebarToggleBtn = document.querySelector('#hambuger');
     if (sidebarToggleBtn) {
       sidebarToggleBtn.addEventListener('click', toggleSidebar);
     }
@@ -94,82 +94,14 @@ const Home= () => {
     
 
     <>
-       {/* <>    */}
-    {/* </> */}
-    {/* <div className="sidebar">
-      <div className="top-section">
-        <div className="logo">
-          <h1 className="logo-text"></h1>
-        </div>
-        <img
-          src="https://png.pngtree.com/png-clipart/20190614/original/pngtree-menu-vector-icon-png-image_3791388.jpg"
-          className="sidebar-toggle-btn"
-        />
-        <i className="fas fa-angles-right"></i>
-      </div>
-
-      <div className="sidebar-menu">
-        <div className="top-menu">
-          <a
-            className={`sidebar-link ${activeView === 'men' ? 'active' : ''}`}
-            onClick={() => handleViewClick('men')}
-          >
-            <i className="fas fa-gauge"></i>
-            <span onClick={()=>window.location.href='/getmens'}>Man</span>
-          </a>
-          {activeView === 'men' && (
-            <div className="category-menu">
-             
-            
-            </div>
-          )}
-          <a
-            className={`sidebar-link ${activeView === 'beauty' ? 'active' : ''}`}
-            onClick={() => handleViewClick('beauty')}
-          >
-            <i className="fas fa-gauge"></i>
-            <span onClick={()=>window.location.href='/beauty'}>beauty</span>
-          </a>
-          {activeView === 'men' && (
-            <div className="category-menu">
-             
-            </div>
-          )}
-          <a
-
-            className={`sidebar-link ${activeView === 'women' ? 'active' : ''}`}
-            onClick={() => handleViewClick('women')}
-          >
-            <i className="fas fa-chart-simple"></i>
-            <span onClick={()=>window.location.href='/Women'}>Woman</span>
-          </a>
-          {activeView === 'women' && (
-            <div className="category-menu">
-      
-            </div>
-          )}
-          <a
-            href="#"
-            className={`sidebar-link ${activeView === 'kids' ? 'active' : ''}`}
-            onClick={() => handleViewClick('kids')}
-          >
-            <i className="fas fa-dollar-sign"></i>
-            <span onClick={()=>window.location.href='/getkids'}>Kids</span>
-          </a>
-          {activeView === 'kids' && (
-            <div className="category-menu">
-            
-            </div> */}
-        
-        {/* </div> */}
-       
-      {/* </div> */}
-    {/* </div> */}
+   
    
       <style>{`
         body {
           background: url(${backgroundImage}) no-repeat fixed center;
-          
+          background-size:cover;
+          background-size:500px
+
 
          
          
@@ -288,3 +220,75 @@ const Home= () => {
   );
 };
 export default Home
+
+    {/* <>    */}
+    {/* </> */}
+    {/* <div className="sidebar">
+      <div className="top-section">
+        <div className="logo">
+          <h1 className="logo-text"></h1>
+        </div>
+        <img
+          src="https://png.pngtree.com/png-clipart/20190614/original/pngtree-menu-vector-icon-png-image_3791388.jpg"
+          className="sidebar-toggle-btn"
+        />
+        <i className="fas fa-angles-right"></i>
+      </div>
+
+      <div className="sidebar-menu">
+        <div className="top-menu">
+          <a
+            className={`sidebar-link ${activeView === 'men' ? 'active' : ''}`}
+            onClick={() => handleViewClick('men')}
+          >
+            <i className="fas fa-gauge"></i>
+            <span onClick={()=>window.location.href='/getmens'}>Man</span>
+          </a>
+          {activeView === 'men' && (
+            <div className="category-menu">
+             
+            
+            </div>
+          )}
+          <a
+            className={`sidebar-link ${activeView === 'beauty' ? 'active' : ''}`}
+            onClick={() => handleViewClick('beauty')}
+          >
+            <i className="fas fa-gauge"></i>
+            <span onClick={()=>window.location.href='/beauty'}>beauty</span>
+          </a>
+          {activeView === 'men' && (
+            <div className="category-menu">
+             
+            </div>
+          )}
+          <a
+
+            className={`sidebar-link ${activeView === 'women' ? 'active' : ''}`}
+            onClick={() => handleViewClick('women')}
+          >
+            <i className="fas fa-chart-simple"></i>
+            <span onClick={()=>window.location.href='/Women'}>Woman</span>
+          </a>
+          {activeView === 'women' && (
+            <div className="category-menu">
+      
+            </div>
+          )}
+          <a
+            href="#"
+            className={`sidebar-link ${activeView === 'kids' ? 'active' : ''}`}
+            onClick={() => handleViewClick('kids')}
+          >
+            <i className="fas fa-dollar-sign"></i>
+            <span onClick={()=>window.location.href='/getkids'}>Kids</span>
+          </a>
+          {activeView === 'kids' && (
+            <div className="category-menu">
+            
+            </div> */}
+        
+        {/* </div> */}
+       
+      {/* </div> */}
+    {/* </div> */}

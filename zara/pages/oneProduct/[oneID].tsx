@@ -1,13 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Button from "react-bootstrap/Button";
+import Navbar from '../navbar';
 
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
+    
     const res = await fetch('http://localhost:3002/api/products');
     const data = await res.json();
-
-    // map data to an array of path objects with params (oneID)
     const paths = data.map((product: { id: number }) => {
         return {
             params: { oneID: product.id.toString() }
@@ -23,9 +23,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const oneID = context.params?.oneID;
     const res = await fetch(`http://localhost:3002/api/getone/${oneID}`);
     const data = await res.json();
-
-    console.log("Product Data:", data); // Check the response data
-
     return {
         props: { product: data }
     };
@@ -46,6 +43,7 @@ interface Product {
 const Details: React.FC<{ product: Product }> = ({ product }) => {
     return (
        <>
+       <Navbar/>
        <style jsx>
             {
               `
@@ -285,14 +283,14 @@ const Details: React.FC<{ product: Product }> = ({ product }) => {
         <div id="header"></div>
         <div id="container">
           <div className="left_side_content">
-            <h4>MATERIALS, CARE AND ORIGIN</h4>
-            <h3>MATERIALS</h3>
+            <h4>ZARA MESSY WEEK</h4>
+            <h3>PRODUCT MANAGER</h3>
             <p>
-              We work with monitoring programmes to ensure compliance with safety,
+              We work with the boys programmes to ensure compliance with safety,
               health and quality standards for our products.
             </p>
             <p>
-              The Green to Wear 2.0 standard aims to minimise the environmental
+              The Greenfeild to Wear 2.0 standard aims to minimise the environmental
               impact of textile manufacturing. To that end, we have developed
               Inditex’s The List programme, which helps guarantee both that
               production processes are

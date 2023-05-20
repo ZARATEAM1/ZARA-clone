@@ -16,6 +16,21 @@ interface Product {
 
 const AllProducts: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [i,setI]=useState(1)
+  const [img,setImg]=useState("https://img.icons8.com/?size=512&id=nfkSUPApKQlU&format=png")
+  const handle=()=>{
+    setI(i+1)
+    if(i>2){
+      setI(1)
+     setImg('https://img.icons8.com/?size=512&id=nfkSUPApKQlU&format=png')
+    }
+    if(i>0){
+      setImg('https://img.icons8.com/?size=512&id=nfkSUPApKQlU&format=png')
+    }
+    if(i==2){
+      setImg('https://img.icons8.com/?size=512&id=53419&format=png')
+    }
+  }
 
   useEffect(() => {
     fetchProducts();
@@ -33,7 +48,7 @@ const AllProducts: React.FC = () => {
 
   return (
     <div>
-      <Navbar/>
+     
       <style jsx>
 {`
  * {
@@ -155,21 +170,32 @@ border: 1px solid black;
 }
 #main {
   display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  grid-template-columns: repeat(${i}, minmax(220px, 1fr));
   gap: 1.8em;
-  width: 90%;
+  width: 80%;
   margin: 10% auto;
 }
 
 #main > div {
-  /* Adjust the width and height to make the products bigger */
+  justify-self: center; /* Center the product horizontally */
+  align-self: center; /* Center the product vertically */
   width: 400px;
   height: 550px;
 }
+.img {
+  position: sticky;
+  top: 50%;
+  right: 6px; 
+  transform: translateY(-50%);
+  width: 30px;
+  height: auto;
+}
 
 `}    </style>
-
+ <Navbar/>
+ <img className='img' src={img} onClick={handle}/>
 <div id="main">
+
     {products.map((product) => (
       <div>
         <img onClick={() => window.location.href = `oneProduct/${product.id}`}  src={product.img} alt="" />

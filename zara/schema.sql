@@ -26,11 +26,7 @@ CREATE TABLE orders (
     id INT NOT NULL AUTO_INCREMENT,
     customer_id INT NOT NULL,
     product_id INT NOT NULL,
-    quantity INT NOT NULL,
     order_date DATE NOT NULL,
-    address VARCHAR(100),
-    city VARCHAR(50),
-    postal_code VARCHAR(20),
     PRIMARY KEY (id),
     FOREIGN KEY (customer_id) REFERENCES customers(id),
     FOREIGN KEY (product_id) REFERENCES products(id)
