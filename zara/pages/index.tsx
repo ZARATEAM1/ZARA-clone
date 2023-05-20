@@ -37,9 +37,7 @@ const Home= () => {
   };
 
   const [backgroundImage, setBackgroundImage] = useState(
-    'https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-join-life/subhome-xmedia-11//w/1920/IMAGE-landscape-default-fill-53c67ecf-62ae-4087-a1a7-2c575c06c8f2-default_0.jpg?ts=1679057887005'
-  );
-
+  'https://www.leal.work/static/04dc9323f0cac4082a8657a2ba5c3bbe/zara-7.jpg')
   const handleClick = () => {
     setBackgroundImage('https://www.strategyzer.com/hubfs/zara-large.jpg');
   };
@@ -171,9 +169,13 @@ const Home= () => {
       <style>{`
         body {
           background: url(${backgroundImage}) no-repeat fixed center;
-          background-size: cover;
+          
+
+         
+         
         }
       `}</style>
+      
          <header>
         <div id="hambuger">
           <img
@@ -183,7 +185,7 @@ const Home= () => {
           />
         </div>
         <div id="logohead">
-          <a href="./index.html">
+          <a href="/">
             <img
               src="https://logodownload.org/wp-content/uploads/2014/05/zara-logo-1.png"
               alt=""

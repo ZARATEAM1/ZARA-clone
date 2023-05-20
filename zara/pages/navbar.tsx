@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
   return (
     <>
     <div id="logo">
-    <a href="./index.html">
+    <a href="/">
         <img src="https://logodownload.org/wp-content/uploads/2014/05/zara-logo-1.png" alt="zaralogo"/>
         </a>
     </div>

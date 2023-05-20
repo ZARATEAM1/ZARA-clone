@@ -1,14 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Button from "react-bootstrap/Button";
-import {
-    MDBCard,
-    MDBCardImage,
-    MDBCardBody,
-    MDBCardTitle,
-    MDBCardText,
-    MDBRow,
-    MDBCol
-} from 'mdb-react-ui-kit';
+
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const res = await fetch('http://localhost:3002/api/products');
@@ -20,7 +13,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
             params: { oneID: product.id.toString() }
         };
     });
-
     return {
         paths,
         fallback: false
@@ -305,7 +297,7 @@ const Details: React.FC<{ product: Product }> = ({ product }) => {
               Inditex’s The List programme, which helps guarantee both that
               production processes are
             </p>
-            <p>View more</p>
+            <p onClick={()=>window.location.href='/All'}>View more</p>
           </div>
           <div className="image_div">
             <img src={product.img} alt="" />
@@ -345,7 +337,7 @@ const Details: React.FC<{ product: Product }> = ({ product }) => {
             </div>
           </div>
   
-          <a href="./shoppingBasket.html">
+          <a href="./cart">
             <button>GO TO BASKET</button>
           </a>
           

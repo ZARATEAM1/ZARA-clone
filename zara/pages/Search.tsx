@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from "next/link";
 import axios from 'axios';
+import ProductFilter from './Filter';
 
 interface Product {
     id: number;
@@ -50,7 +51,7 @@ interface Product {
           />
         </div>
         <div id="logohead">
-          <a href="./index.html">
+          <a href="/">
             <img
               src="https://logodownload.org/wp-content/uploads/2014/05/zara-logo-1.png"
               alt=""
@@ -70,6 +71,7 @@ interface Product {
           </div>
         </div>
       </header>
+      <ProductFilter/>
 
       <div id="container">
         <div id="main">
@@ -93,19 +95,17 @@ interface Product {
       <div className="product_info_rightSide">
         <div className="product_name">
           <h2>{product.name}</h2>
-          <img  src={product.img} alt="" />
+          
 
         </div>
-        <p>{product.description}</p>
+       
         <p>${product.price}</p>
-        <Link href={`oneProduct/${product.id}`}>{product.name}</Link>
-        <p>INCLUDES TVA</p>
-        <hr />
-        <div className="sizes">
-          <p>{product.size}</p>
+        
+       
+        
         </div>
       </div>
-    </div>
+    
   ))
 ) : (
   <p>No products found.</p>

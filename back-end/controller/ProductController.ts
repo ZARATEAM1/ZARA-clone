@@ -50,6 +50,7 @@ export class ProductController {
   }
 
   getBeautyProducts(req: Request, res: Response) {
+    
     this.model.getBeautyProducts((error: any, results: any) => {
       if (error) {
         console.error('Error fetching beauty products:', error);
@@ -61,12 +62,16 @@ export class ProductController {
   }
 
   getBlazeProducts(req: Request, res: Response) {
-    this.model.getBlazeProducts((error: any, results: any) => {
-      if (error) {
-        console.error('Error fetching Blaze products:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+    const blaze:any=req.params.blaze
+    this.model.getBlazeProducts(blaze, (err: any, result: any) => {
+      if (err) {
+        res.status(500).send(err);
       } else {
-        res.json(results);
+        if (result.length === 0) {
+          res.status(404).json({ message: 'Product not found' });
+        } else {
+          res.status(200).json(result);
+        }
       }
     });
   }
