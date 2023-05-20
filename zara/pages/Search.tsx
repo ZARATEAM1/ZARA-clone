@@ -7,6 +7,10 @@ interface Product {
     id: number;
     name: string;
     category: string;
+    img:string
+    description:string;
+    price:number;
+    size:string;
   }
   
   const MyComponent: React.FC = () => {
@@ -79,6 +83,7 @@ interface Product {
           />
              
           <div id="trending_product">
+            {searchTerm &&  <p>Is this what you loocking for ?</p>}
           {searchTerm !== '' && filteredProducts.length > 0 ? (
   filteredProducts.map((product) => (
     <div className="product" key={product.id}>
@@ -128,6 +133,7 @@ interface Product {
          
         </div>
       </div>
+      {/* //avoid this is just the styling cause i've strugled a lot to find a way. */}
       <style jsx>
             {`
            * {

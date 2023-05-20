@@ -1,8 +1,15 @@
 'use client'
 import axios from 'axios';
 import React, { useState } from 'react'
+import jwtDecode from 'jwt-decode';
+import { create } from 'lodash';
+
 const API='http://localhost:3002/user/login'
 const API2='http://localhost:3002/user/sign'
+interface TokenPayload {
+  email: string;
+  iat: number;
+}
 // import '../tailwindcss/log.css'
 function Login() {
 const [username, setUsername] = useState("");
@@ -21,8 +28,13 @@ const handleLog= async()=>{
 
 await axios.post(API,obj)
 .then((res)=>{
-    alert("loged")
-    console.log(res.data.token) 
+  const token = res.data.token;
+  const decodedToken = jwtDecode<TokenPayload>(token);
+  localStorage.setItem('token', token);
+  console.log(decodedToken.email,"Ala");
+  console.log(decodedToken);
+  window.location.href='/All'
+  
 })
 .catch(err=>console.log(err))
 }
@@ -49,72 +61,72 @@ const handleSubmit=async()=>{
        }
      `}</style>
      <>
+     {!Create &&<style >
+     </style>}
       
     {!Create && (
-       <>
-       <div id="header"></div>
-       <div id="logindiv">
-         <div id="log">
-           <section>
-             <h3>LOG IN</h3>
-             
-               <div id="ep">
-                 <input
-                   type="email"
-                   id="inputEmail"
-            
-                   placeholder="email"
-                   value={email}
-                   onChange={(e) => setEmail(e.target.value)}
-                   required
-                 />
-                 <br />
-                 <input
-                   type="password"
-                   id="inputEmail"
-                   placeholder="password"
-                   value={password}
-                   onChange={(e) => setPassword(e.target.value)}
-                   required
-                 />
-               </div>
+    
+      
+     
+    <>
+    <div className="login">
+      <div className="center">
+        <h2 className="form-title">LOG IN</h2>
+        <div className="form-holder">
+          <input
+            type="email"
+            required
+            value={email}
+            className="input"
+            placeholder="Set your email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            required
+            value={password}
+            className="input"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            onDoubleClick={handleLog}
            
-
-               <button type="submit">LOG IN</button>
-               
-            
-           </section>
-         </div>
-         <div id="reg">
-           <section>
-             <h3>REGISTER</h3>
-             <div className="size">
-               <p>
-                 IF YOU STILL DON'T HAVE A
-                 <span>
-                   <strong>ZARA.com</strong> "ACCOUNT, USE THIS OPTION TO ACCESS
-                   THE REGISTRATION FORM."
-                 </span>
-               </p>
-             </div>
-
-             <div className="size">
-               <p>
-                 BY GIVING US YOUR DETAILS, PURCHASING <b>ZARA</b> "WILL BE FASTER AND AN ENJOYABLE EXPERIENCE."
-               </p>
-             </div>
-
-             <div id="bttn">
-               <button>
-                 <a onClick={handlecreate}>CREATE ACCOUNT</a>
-               </button>
-             </div>
-           </section>
-         </div>
-       </div>
-
-       <div id="footer"></div>
-     </>
+          />
+        </div>
+        
+      </div>
+    </div>
+  
+    <div id="reg">
+      <section>
+        <h3>REGISTER</h3>
+        <div className="size">
+          <p>
+            IF YOU STILL DON'T HAVE A{" "}
+            <span>
+              <strong>ZARA.com</strong> ACCOUNT, USE THIS OPTION TO ACCESS THE
+              REGISTRATION FORM.
+            </span>
+          </p>
+        </div>
+  
+        <div className="size">
+          <p>
+            BY GIVING US YOUR DETAILS, PURCHASING <b>ZARA</b> WILL BE FASTER AND
+            AN ENJOYABLE EXPERIENCE.
+          </p>
+        </div>
+  
+        <div id="bttn">
+          <button onClick={handlecreate}>
+            <a>CREATE ACCOUNT</a>
+          </button>
+        </div>
+      </section>
+    </div>
+  
+    <div id="footer"></div>
+  </>
+  
     )}
   </>
 
@@ -162,6 +174,13 @@ const handleSubmit=async()=>{
   )}
   <style jsx>{
     `
+    #reg{
+      padding-left:400px;
+      margin-top:-140px
+    }
+    .login{
+      padding-right:600px;
+    }
     .form {
         display: flex;
         flex-direction: column;
@@ -494,12 +513,55 @@ height: 2.7em;
   width: 200%;
   height: 30px;
 }
-
-
-}
-      
-      `
+ #log {
+    background: transparent;
   }
+  
+  #log section {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #log h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  #ep input[type="email"],
+  #ep input[type="password"] {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    font-size: 16px;
+    color: black;
+  }
+  
+  button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+`}
+
+
+
+
+
+      
+      
+  
 
   </style>
 </div>
