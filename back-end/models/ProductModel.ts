@@ -31,8 +31,8 @@ getProductById = (id: any, callback: (err: any, result: any) => void): void => {
     this.connection.query('SELECT * FROM products where gender = "beauty"', callback);
   }
 
-  getBlazeProducts(blaze:string,callback: (error: any, results: any) => void) {
-    this.connection.query('select * from products where category="Clothing"', callback);
+  getBlazeProducts(blazer:string,callback: (error: any, results: any) => void) {
+    this.connection.query(`select * from products where category='${blazer}'`, callback);
   }
 
   getShoesProducts(callback: (error: any, results: any) => void) {

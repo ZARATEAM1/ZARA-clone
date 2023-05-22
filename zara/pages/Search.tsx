@@ -81,7 +81,7 @@ interface Product {
             value={searchTerm}
             onChange={handleSearch}
             id="searchbar"
-            placeholder="ENTER SEARCH TERMS"
+        
           />
              
           <div id="trending_product">
@@ -141,6 +141,8 @@ interface Product {
             /* font-family: 'PT Sans', sans-serif; */
             font-family: "Karla", sans-serif;
             padding: 0;
+//             justify-self: center;
+//   align-self: center; 
           }
           header {
             display: flex;
@@ -208,20 +210,20 @@ interface Product {
           #main {
             width: 92.5%;
             /* border: 1px solid red; */
-            margin-left: 7.5%;
+            margin-left: 7.9999%;
           }
           
           
           /* search baar  */
           #searchbar {
             margin-top: 1.6em;
-            width: 98%;
+            width: 92%;
             outline: none;
             border: none;
-            border-bottom: 2px solid black;
+            border-bottom: 1px solid black;
             padding: 0.2em 0em;
-            font-size: 1.9em;
-            font-weight: bold;
+            font-size: 1.5em;
+            // font-weight: bold;
           }
           #searchbar::placeholder {
             color: black;
@@ -231,9 +233,16 @@ interface Product {
           #trending_product {
             /* border: 1px solid red; */
             margin-top: 5em;
+width: 99%;
             /* line-height: 3.5em; */
             font-size: 0.68em;
             font-weight: bold;
+            display: grid;
+            grid-template-columns: repeat(1, minmax(220px, 1fr));
+           margin-left:320px
+          
+    
+            
           }
           #trending_product > :first-child {
             color: black;
@@ -251,7 +260,8 @@ interface Product {
           
           
           .grid{
-            display: grid;
+            // display: grid;
+           
           }
           .none{
             display: none;
@@ -487,6 +497,7 @@ interface Product {
               width: 90%;
               margin: auto;
               /* border: 1px solid red; */
+              
             }
             #searchbar {
               margin-top: 1.6em;
@@ -496,7 +507,7 @@ interface Product {
               border-bottom: 2px solid black;
               padding: 0.2em 0em;
               font-size: 1.9em;
-              font-weight: bold;
+                /* border: 1px solid red; */                
               /* border: 1px solid red; */
             }
             .grid{
@@ -700,9 +711,11 @@ interface Product {
           #container {
             width: 85%;
             /* border: 1px solid red; */
-            display: flex;
+            // display: flex;
             margin: auto;
-            justify-content: space-between;
+            // justify-content: space-between;
+            justify-self: center;
+  align-self: center; 
           }
           
           /* left side content div  */

@@ -62,8 +62,8 @@ export class ProductController {
   }
 
   getBlazeProducts(req: Request, res: Response) {
-    const blaze:any=req.params.blaze
-    this.model.getBlazeProducts(blaze, (err: any, result: any) => {
+    const blazer:any=req.params.blazer
+    this.model.getBlazeProducts(blazer, (err: any, result: any) => {
       if (err) {
         res.status(500).send(err);
       } else {

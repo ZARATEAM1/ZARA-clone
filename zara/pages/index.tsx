@@ -14,6 +14,7 @@ import Login from '../pages/login';
 
 const Home= () => {
   const [activeView, setActiveView] = useState('');
+  const [vd, setVd] = useState('');
 
   const handleViewClick = (viewName: string) => {
     if (activeView === viewName) {
@@ -39,6 +40,8 @@ const Home= () => {
   'https://www.leal.work/static/04dc9323f0cac4082a8657a2ba5c3bbe/zara-7.jpg')
   const handleClick = () => {
     setBackgroundImage('https://www.strategyzer.com/hubfs/zara-large.jpg');
+    setVd('/videos/vd3.mp4');
+    
   };
 
   useEffect(() => {
@@ -54,14 +57,20 @@ const Home= () => {
       } else if (event.key === 'ArrowLeft') {
         setBackgroundImage(
           'https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-new/subhome-xmedia-20//w/1920/IMAGE-landscape-fill-c858f95e-9272-423c-a1ee-40e7dfd5b638-default_0.jpg?ts=1684136380997'
-        );
+        
+        )
+        setVd("")  ;
       } else if (event.key === 'ArrowRight') {
-        console.log(event.key, 'hello');
-
         setBackgroundImage(
           'https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-atelier/subhome-xmedia-atelier-collection//w/1920/IMAGE-landscape-default-fill-9e19aff3-b564-484d-b0f0-11b64bfe7717-default_0.jpg?ts=1683832897603'
         );
       }
+     else if (event.key === 'n') {
+      setVd('/videos/vd3.mp4');
+    }
+    else if (event.key === ' ') {
+      setVd('/videos/vd9.mp4');
+    }
     };
 
     window.addEventListener('keydown', handleKeyPress);
@@ -94,23 +103,29 @@ const Home= () => {
     
 
     <>
+     <div className="background-video-container">
+      { vd&& (<video className="background-video" autoPlay loop muted>
+      <source src={vd} type="video/mp4" />
+      </video>)}
+    </div>
    
    
       <style>{`
         body {
           background: url(${backgroundImage}) no-repeat fixed center;
           background-size:cover;
-          background-size:500px
+          // background-size:500px
 
 
          
          
         }
       `}</style>
-      
+    
          <header>
         <div id="hambuger">
           <img
+          onClick={()=>window.location.href='/All'}
             src="https://icon-library.com/images/menu-icon-png-3-lines/menu-icon-png-3-lines-16.jpg"
             alt=""
             id="hamburgerIcon"
@@ -147,7 +162,26 @@ const Home= () => {
      
       {log && <Login />}
       <style jsx>
-      {`  * {
+      {`  
+      .background-video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+      
+      .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      * {
             margin: 0;
             /* font-family: 'PT Sans', sans-serif; */
             font-family: "Karla", sans-serif;

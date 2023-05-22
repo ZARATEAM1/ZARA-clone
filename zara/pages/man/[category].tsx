@@ -2,10 +2,10 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Navbar from '../navbar';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch('http://localhost:3002/api/products');
+  const res = await fetch('http://localhost:3002/api/get');
   const data = await res.json();
 
-  // map data to an array of path objects with params (oneID)
+ 
   const paths = data.map((product: { category: string }) => {
     return {
       params: { category: product.category.toString() }
@@ -45,7 +45,7 @@ interface Product {
 const Details: React.FC<{ products: Product[] }> = ({ products }) => {
   return (
     <div>
-      
+     
         
         <style jsx>
         {`
@@ -182,6 +182,7 @@ const Details: React.FC<{ products: Product[] }> = ({ products }) => {
         
         `}    </style>
       <Navbar />
+     
 
       <div id="main">
         {products.map((e) => (

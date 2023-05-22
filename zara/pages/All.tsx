@@ -17,6 +17,7 @@ interface Product {
 const AllProducts: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [i,setI]=useState(1)
+  
   const [img,setImg]=useState("https://img.icons8.com/?size=512&id=nfkSUPApKQlU&format=png")
   const handle=()=>{
     setI(i+1)
@@ -177,8 +178,8 @@ border: 1px solid black;
 }
 
 #main > div {
-  justify-self: center; /* Center the product horizontally */
-  align-self: center; /* Center the product vertically */
+  justify-self: center;
+  align-self: center; 
   width: 400px;
   height: 550px;
 }
@@ -193,6 +194,7 @@ border: 1px solid black;
 
 `}    </style>
  <Navbar/>
+
  <img className='img' src={img} onClick={handle}/>
 <div id="main">
 

@@ -1,12 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Button from "react-bootstrap/Button";
 import Navbar from '../navbar';
+import { useEffect, useState } from 'react';
 
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
     
-    const res = await fetch('http://localhost:3002/api/products');
+    const res = await fetch('http://localhost:3002/api/get');
     const data = await res.json();
     const paths = data.map((product: { id: number }) => {
         return {
@@ -23,10 +24,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const oneID = context.params?.oneID;
     const res = await fetch(`http://localhost:3002/api/getone/${oneID}`);
     const data = await res.json();
+    
     return {
         props: { product: data }
     };
 };
+
 
 interface Product {
     id: number;
@@ -41,6 +44,28 @@ interface Product {
 }
 
 const Details: React.FC<{ product: Product }> = ({ product }) => {
+    const [vd, setVd] = useState('');
+    console.log(product.id)
+
+    useEffect(() => {
+      const handle = () => {
+        if (product.id ==19) {
+          setVd('/videos/vd4.mp4');
+        }
+        if (product.id ==18) {
+            setVd('/videos/vd3.mp4');
+          }
+        //   if (product.id ==89) {
+        //     setVd('/videos/vd9.mp4');
+        //   }
+          if (product.id ==20) {
+            setVd('/videos/vd7.mp4');
+          }
+          if (product.id ==199) {
+            setVd('/videos/vd6.mp4');
+          }}
+          handle(); 
+        }, [])
     return (
        <>
        <Navbar/>
@@ -280,6 +305,34 @@ const Details: React.FC<{ product: Product }> = ({ product }) => {
             }
   
           </style>
+          <style jsx>
+        {`
+        .background-video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+          }
+          
+          .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          `}
+    </style>
+    <div className="background-video-container">
+      { vd&& (<video className="background-video" autoPlay loop muted>
+      <source src={vd} type="video/mp4" />
+      </video>)}
+    </div>
+          
         <div id="header"></div>
         <div id="container">
           <div className="left_side_content">
@@ -317,7 +370,8 @@ const Details: React.FC<{ product: Product }> = ({ product }) => {
               <p>FIND YOUR SIZE</p>
               <p>SIZE GUIDE</p>
             </div>
-            <button>ADD TO BAG</button>
+            <button onClick={() => window.location.href = `../cart/${product.id}`}>add to cart</button>
+
             <p>CHECK IN-STORE AVAILABILITY</p>
             <p>DELIVERY, EXCHANGES AND RETURNS</p>
           </div>
@@ -335,9 +389,10 @@ const Details: React.FC<{ product: Product }> = ({ product }) => {
             </div>
           </div>
   
-          <a href="./cart">
-            <button>GO TO BASKET</button>
-          </a>
+         
+          <button onClick={() => window.location.href = `/cart/${product.id}`}>ADD TO BAG</button>
+
+         
           
         </div>
      </>
